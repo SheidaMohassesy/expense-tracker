@@ -1,11 +1,11 @@
 import logo from "./logo.svg";
 import "./App.css";
-import ExpenceItem from "./Components/ExpenceItem";
+import ExpenseItem from "./Components/ExpenseItem";
 function App() {
   return (
     <div>
       <h2>Let's get started</h2>
-      <ExpenceItem></ExpenceItem>
+      <ExpenseItem />
     </div>
   );
 }
