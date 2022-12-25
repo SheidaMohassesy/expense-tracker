@@ -11,7 +11,7 @@ const ExpenseItem = (props) => {
 
   const clickHandler = () => {
     setTitle('updated!!');
-  }
+  };
 
   return (
     <Card className="expense-item">
@@ -23,6 +23,6 @@ const ExpenseItem = (props) => {
       </div>
     </Card>
   );
-}
+};
 
 export default ExpenseItem;
