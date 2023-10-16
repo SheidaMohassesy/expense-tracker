@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NewExpense from './Components/NewExpense/NewExpense';
 
 import logo from './logo.svg';
@@ -26,6 +26,17 @@ const App = () => {
       date: new Date(2021, 5, 12),
     },
   ];
+  const [filteredExpenses, setFilteredExpenses] = useState(expenses);
+
+  const applyYearFilter = (year) => {
+    const filterRule = (item) => {
+      const date = new Date(item.date);
+      return date.getFullYear().toString() === year;
+    };
+
+    const filtered = expenses.filter(filterRule);
+    setFilteredExpenses(filtered);
+  };
 
   const addExpenseHandler = (expense) => {
     console.log('In App.js');
@@ -35,7 +46,7 @@ const App = () => {
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses items={expenses} />
+      <Expenses items={filteredExpenses} onYearFilterChange={applyYearFilter} />
     </div>
   );
 };
